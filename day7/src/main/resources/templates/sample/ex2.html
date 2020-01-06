@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    <ul th:with="target='u5'">
+        <li th:each="board, state : ${list}">
+            <p th:class="${state.odd ? '홀수' : '짝수'}"></p>
+            <a href="" th:if="${board.writer == target}"><p th:text="${board.bno}"></p></a>
+            
+            <p th:text="${board.title}"></p>
+            <p th:text="${board.writer}"></p>
+        </li>
+    </ul>
+
+    <script th:inline="javascript">
+    
+    var list = [[$(list)]];
+    var count = [[$(count)]];
+    var msg = [[$(msg)]];
+    
+    </script>
+</body>
+</html>
